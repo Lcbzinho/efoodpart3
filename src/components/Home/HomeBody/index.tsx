@@ -1,8 +1,8 @@
-import { Card } from '../Card'
+import { Card } from '../../SubComponents/Card'
 import { HomeBodyContainer, BodyContainer } from './styles'
 
-import spaghetti from '../../assets/images/Restaurants/Spaghetti.png'
-import sushi from '../../assets/images/Restaurants/sushi.png'
+import spaghetti from '../../../assets/images/Restaurants/Spaghetti.png'
+import sushi from '../../../assets/images/Restaurants/sushi.png'
 
 export const Body = () => {
   return (

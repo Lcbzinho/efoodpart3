@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import BackImg from '../../assets/images/fundo.png'
-import { Colors } from '../../styles'
+import BackImg from '../../../assets/images/fundo.png'
+import { Colors } from '../../../styles'
 
 export const Background = styled.div`
   background-image: url(${BackImg});

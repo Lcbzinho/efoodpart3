@@ -1,8 +1,8 @@
 import { FooterContainer, IconsFooter } from './styles'
-import Logo from '../../assets/images/logo.png'
-import Instagram from '../../assets/images/Icons/Instagram.png'
-import Facebook from '../../assets/images/Icons/Facebook.png'
-import Twitter from '../../assets/images/Icons/Twitter.png'
+import Logo from '../../../assets/images/logo.png'
+import Instagram from '../../../assets/images/Icons/Instagram.png'
+import Facebook from '../../../assets/images/Icons/Facebook.png'
+import Twitter from '../../../assets/images/Icons/Twitter.png'
 
 export const Footer = () => {
   return (

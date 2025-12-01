@@ -1,6 +1,6 @@
-import { Footer } from '../../components/Footer'
-import { Body } from '../../components/HomeBody'
-import { Header } from '../../components/HomeHeader'
+import { Footer } from '../../components/SubComponents/Footer'
+import { Body } from '../../components/Home/HomeBody'
+import { Header } from '../../components/Home/HomeHeader'
 
 export const Home = () => {
   return (

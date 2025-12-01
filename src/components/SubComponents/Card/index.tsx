@@ -1,6 +1,6 @@
 import { Tag } from '../Tag'
 import { CardImage, TagContainer, CardContainer, CardDiv, CardTitle, CardDesc } from './styles'
-import Star from '../../assets/images/estrela.png'
+import Star from '../../../assets/images/estrela.png'
 
 type Props = {
   image: string
