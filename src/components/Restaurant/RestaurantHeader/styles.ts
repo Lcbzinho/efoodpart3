@@ -27,6 +27,10 @@ export const Restaurant = styled.p`
       text-decoration: none;
       color: inherit;
     }
+
+    &:hover {
+      text-decoration: underline;
+    }
 `
 
 export const HeaderImg = styled.img`
