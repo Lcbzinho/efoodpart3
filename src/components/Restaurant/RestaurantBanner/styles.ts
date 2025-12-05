@@ -2,15 +2,12 @@ import styled from 'styled-components'
 import { Colors } from '../../../styles'
 
 type Props = {
-  weight: number
+  weight?: number
+  background?: string
 }
 
-type BackgroundProps = {
-  Background: string
-}
-
-export const Banner = styled.div<BackgroundProps>`
-  background-image: url({Background});
+export const Banner = styled.div<Props>`
+  background-image: url(${(props) => props.background});
   width: 100%;
   height: 280px;
   display: flex;

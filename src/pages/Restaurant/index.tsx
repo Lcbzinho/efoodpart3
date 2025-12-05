@@ -51,7 +51,6 @@ export const Restaurant = () => {
   if (!Restaurant)
     return (
       <ErrorDiv>
-        <h1>Restaurant não encontado - Erro 404</h1>
         <img src={Erro} alt="Erro 404, 404, error, error 404" />
       </ErrorDiv>
     )
@@ -59,7 +58,7 @@ export const Restaurant = () => {
   return (
     <>
       <RestaurantHeader itens={0} />
-      <RestaurantBanner img={Restaurant.capa} />
+      <RestaurantBanner desc={Restaurant.titulo} title={Restaurant.tipo} img={Restaurant.capa} />
       <RestaurantBody Cardapio={Restaurant.cardapio} />
       <Footer />
     </>
