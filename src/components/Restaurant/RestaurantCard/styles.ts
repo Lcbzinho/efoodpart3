@@ -13,7 +13,11 @@ export const RestaurantCardDiv = styled.div`
 `
 
 export const RestaurantCardImage = styled.img`
+  max-width: 304px;
+  max-height: 167px;
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 `
 
 export const RestaurantCardTitle = styled.h2`

@@ -6,6 +6,7 @@ import { Footer } from '../../components/SubComponents/Footer'
 import { useEffect, useState } from 'react'
 import Erro from '../../assets/images/404.jpg'
 import { ErrorDiv } from './styles'
+import { Modal } from '../../components/SubComponents/Modal'
 
 type RestaurantType = {
   id: number
@@ -29,6 +30,9 @@ export const Restaurant = () => {
   const [Restaurant, setRestaurant] = useState<RestaurantType | null>(null)
   const [Carregando, setCarregando] = useState(true)
 
+  const [clicked, setClicked] = useState(false)
+  const [ClickedRestaurant, setClickedRestaurant] = useState<RestaurantType["cardapio"][0] | null>(null)
+
   useEffect(() => {
     async function load() {
       const request = await fetch('https://api-ebac.vercel.app/api/efood/restaurantes')
@@ -42,12 +46,33 @@ export const Restaurant = () => {
 
     load()
   }, [id])
+
+
+
+  const HandleCloseClicked = (data:boolean) => {
+    setClicked(data)
+  }
+
+  const HandleChangeClicked = (data:boolean, id: number) => {
+    setClicked(data)
+    if (!Restaurant) return
+
+    const item = Restaurant.cardapio.find(item => item.id === id)
+
+    if (item) {
+      setClickedRestaurant(item)
+    }
+  }
+
+
   if (Carregando)
     return (
       <ErrorDiv>
         <span>Loading...</span>
       </ErrorDiv>
     )
+
+
   if (!Restaurant)
     return (
       <ErrorDiv>
@@ -55,11 +80,14 @@ export const Restaurant = () => {
       </ErrorDiv>
     )
 
+
+
   return (
     <>
+      {clicked && ClickedRestaurant && <Modal cardapio={ClickedRestaurant} Clicked={HandleCloseClicked} />}
       <RestaurantHeader itens={0} />
       <RestaurantBanner desc={Restaurant.titulo} title={Restaurant.tipo} img={Restaurant.capa} />
-      <RestaurantBody Cardapio={Restaurant.cardapio} />
+      <RestaurantBody Clicked={HandleChangeClicked} Cardapio={Restaurant.cardapio} />
       <Footer />
     </>
   )

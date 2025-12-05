@@ -8,7 +8,6 @@ type Props = {
 
 
 export const RestaurantBanner = ({ img, title, desc }: Props) => {
-  console.log(img)
   return (
     <Banner background={img}>
       <RestaurantDescDiv>

@@ -7,12 +7,14 @@ import {
 } from './styles'
 
 type Props = {
+  Clicked: (data: boolean, id: number) => void
+  id: number
   CardImg: string
   CardTitle: string
   CardDesc: string
 }
 
-export const RestaurantCard = ({ CardDesc, CardImg, CardTitle }: Props) => {
+export const RestaurantCard = ({ CardDesc, CardImg, CardTitle, Clicked, id }: Props) => {
   return (
     <RestaurantCardDiv>
       <div>
@@ -20,7 +22,7 @@ export const RestaurantCard = ({ CardDesc, CardImg, CardTitle }: Props) => {
         <RestaurantCardTitle>{CardTitle}</RestaurantCardTitle>
         <RestaurantCardDesc>{CardDesc}</RestaurantCardDesc>
       </div>
-      <RestaurantCardAddButton>Add to Cart</RestaurantCardAddButton>
+      <RestaurantCardAddButton onClick={() => Clicked(true, id)}>Add to Cart</RestaurantCardAddButton>
     </RestaurantCardDiv>
   )
 }

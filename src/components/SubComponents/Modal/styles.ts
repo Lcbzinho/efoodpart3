@@ -47,6 +47,7 @@ export const ModalImage = styled.img`
   width: 280px;
   height: 280px;
   margin-right: 24px;
+  object-fit: cover;
 `
 
 export const ModalTitle = styled.h2`
