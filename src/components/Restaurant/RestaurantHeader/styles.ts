@@ -19,9 +19,13 @@ export const HeaderContainer = styled.div`
   align-items: center;
 `
 
-export const Restaurant = styled.p`
+export const Restaurant = styled.button`
     font-weight: 900;
     font-size: 18px;
+    border: none;
+    background-color: transparent;
+    color: ${Colors.TitleColor};
+    cursor: pointer;
 
     a {
       text-decoration: none;

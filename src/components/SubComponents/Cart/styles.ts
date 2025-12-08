@@ -10,6 +10,10 @@ export const CartContainer = styled.div`
   inset: 0;
   display: flex;
   justify-content: end;
+
+  & > .Close {
+    position: relative;
+  }
 `
 
 export const CartCon = styled.div`
@@ -22,4 +26,13 @@ export const CartCon = styled.div`
     & > div {
         margin-top: 40px;
     }
-    `
+`
+
+export const CartCloseButton = styled.button`
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+`

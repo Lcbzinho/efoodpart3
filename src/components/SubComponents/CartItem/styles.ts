@@ -4,6 +4,7 @@ import { Colors } from "../../../styles"
 export const CartItem = styled.div`
     background-color: ${Colors.BackgroundColor};
     padding: 8px;
+    margin-top: 16px;
     `
 
 export const CartItemContainer = styled.div`
@@ -18,6 +19,7 @@ export const CartItemImage = styled.img`
     width: 80px;
     height: 80px;
     margin-right: 8px;
+    object-fit: cover;
 `
 
 export const CartItemTitle = styled.h2`

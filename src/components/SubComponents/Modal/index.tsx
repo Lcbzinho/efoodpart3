@@ -28,12 +28,21 @@ export const Modal = ({ prato, Clicked }: Props) => {
   const Dispatch = useDispatch()
   const items = useSelector((state: RootState) => state.cart)
 
+  //Function to verify addItem
   const AddItem = (prato: Props['prato']) => {
     const Exist = items.some((item) => item.id === prato.id)
 
     if (!Exist) {
       Dispatch(addItem(prato))
+    } else {
+      alert("Item já adicionado ao carrinho!")
     }
+  }
+
+  //Function AddItem and CloseModal
+  const Final = () => {
+    AddItem(prato)
+    Clicked(false)
   }
 
   return (
@@ -49,7 +58,7 @@ export const Modal = ({ prato, Clicked }: Props) => {
               <ModalDesc>
                 Serve: <span>{prato.porcao}</span>
               </ModalDesc>
-              <BuyButton onClick={() => AddItem(prato)} value={prato.preco} />
+              <BuyButton onClick={() => Final()} value={prato.preco} />
             </div>
           </ModalItem>
         </div>
