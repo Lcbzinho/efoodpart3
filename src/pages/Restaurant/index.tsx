@@ -67,7 +67,7 @@ export const Restaurant = () => {
   return (
     <>
       {clicked && data && (
-        <Modal prato={data.cardapio[ItemSelected]} Clicked={HandleCloseClicked} />
+        <Modal prato={data.cardapio[ItemSelected]} Clicked={HandleCloseClicked} key={data.titulo} />
       )}
       <RestaurantHeader />
       <RestaurantBanner desc={data.titulo} title={data.tipo} img={data.capa} />
