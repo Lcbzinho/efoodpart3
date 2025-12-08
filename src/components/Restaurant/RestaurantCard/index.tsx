@@ -1,4 +1,3 @@
-
 import {
   RestaurantCardAddButton,
   RestaurantCardDesc,
@@ -16,7 +15,6 @@ type Props = {
 }
 
 export const RestaurantCard = ({ CardDesc, CardImg, CardTitle, Clicked, id }: Props) => {
-
   return (
     <RestaurantCardDiv>
       <div>
@@ -24,7 +22,9 @@ export const RestaurantCard = ({ CardDesc, CardImg, CardTitle, Clicked, id }: Pr
         <RestaurantCardTitle>{CardTitle}</RestaurantCardTitle>
         <RestaurantCardDesc>{CardDesc}</RestaurantCardDesc>
       </div>
-      <RestaurantCardAddButton onClick={() => Clicked(true, id)}>Add to Cart</RestaurantCardAddButton>
+      <RestaurantCardAddButton onClick={() => Clicked(true, id)}>
+        Add to Cart
+      </RestaurantCardAddButton>
     </RestaurantCardDiv>
   )
 }
