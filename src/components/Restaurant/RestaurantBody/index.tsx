@@ -19,7 +19,7 @@ export const RestaurantBody = ({ Cardapio, Clicked }: Props) => {
       <RestaurantContainer>
         {Cardapio.map((item, index) => (
           <RestaurantCard
-            key={item.id}
+            key={item.nome}
             id={index}
             CardImg={item.foto}
             CardDesc={item.descricao}

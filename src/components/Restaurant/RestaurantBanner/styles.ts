@@ -2,12 +2,12 @@ import styled from 'styled-components'
 import { Colors } from '../../../styles'
 
 type Props = {
-  weight?: number
-  background?: string
+  $weight?: number
+  $background?: string
 }
 
 export const Banner = styled.div<Props>`
-  background-image: url(${(props) => props.background});
+  background-image: url(${(props) => props.$background});
   width: 100%;
   height: 280px;
   display: flex;
@@ -30,5 +30,5 @@ export const RestaurantDescDiv = styled.div`
 
 export const RestaurantDesc = styled.h2<Props>`
   font-size: 32px;
-  font-weight: ${(props) => props.weight};
+  font-weight: ${(props) => props.$weight};
 `

@@ -33,7 +33,6 @@ export const Modal = ({ prato, Clicked }: Props) => {
 
     if (!Exist) {
       Dispatch(addItem(prato))
-      console.log('EUREKA')
     }
   }
 

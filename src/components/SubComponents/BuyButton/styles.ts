@@ -6,6 +6,7 @@ export const ButtonContainer = styled.button`
   background-color: ${Colors.BackgroundColor};
   color: ${Colors.TitleColor};
   border: none;
+  cursor: pointer;
 `
 
 export const ButtonTitle = styled.span`
