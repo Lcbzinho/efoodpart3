@@ -6,13 +6,15 @@ import type { RootState } from '../../../store/indext'
 import { useState } from 'react'
 import { CartBody } from '../../SubComponents/Cart'
 import { ItemsList } from '../../SubComponents/CartListItems'
-import { CartEntrega } from '../../SubComponents/CartEntrega'
+import { CartEntrega } from '../../SubComponents/StepsCart/Adress'
+import { PaymentCart } from '../../SubComponents/StepsCart/Payment'
 
 export const RestaurantHeader = () => {
   //Processos cart
   const Processos = [
     <ItemsList />,
-    <CartEntrega />
+    <CartEntrega />,
+    <PaymentCart />
   ]
   const ite = useSelector((state: RootState) => state.cart)
   const [clicked, setClicked] = useState(false)

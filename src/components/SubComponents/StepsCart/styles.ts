@@ -6,6 +6,14 @@ export const EntregaDiv = styled.div`
     flex-direction: column;
     color: ${Colors.BackgroundColor};
     font-weight: 700;
+
+    & > .buttons {
+        margin-top: 16px;
+
+        & > .buttons2 {
+            margin-top: 8px;
+        }
+    }
 `
 
 export const EntregaTitle = styled.h2`
@@ -14,6 +22,7 @@ export const EntregaTitle = styled.h2`
 `
 export const EntregaInfoDiv = styled.div`
     margin-bottom: 8px;
+    
 `
 
 export const EntregaInfoDivGrid = styled.div`

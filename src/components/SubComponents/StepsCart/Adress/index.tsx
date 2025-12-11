@@ -1,6 +1,10 @@
-import { EntregaDiv, EntregaInfoDiv, EntregaInfoDivGrid, EntregaInput, EntregaLabel, EntregaTitle } from "./styles"
+import { useDispatch } from "react-redux"
+import { ContinueButton } from "../../ContinueButton"
+import { EntregaDiv, EntregaInfoDiv, EntregaInfoDivGrid, EntregaInput, EntregaLabel, EntregaTitle } from "../styles"
+import { NextFunction, PrevFunction } from "../../../../store/slices/CartSlice"
 
 export const CartEntrega = () => {
+    const Dispatch = useDispatch()
     return (
         <EntregaDiv>
             <EntregaTitle>Entrega</EntregaTitle>
@@ -30,6 +34,12 @@ export const CartEntrega = () => {
                     <EntregaLabel>Complemento (Opcional)</EntregaLabel>
                     <EntregaInput placeholder="Complemento" />
                 </EntregaInfoDiv>
+                <div className="buttons">
+                    <ContinueButton onClick={() => Dispatch(NextFunction())}>Continuar para o Pagamento</ContinueButton>
+                    <div className="buttons2">
+                        <ContinueButton onClick={() => Dispatch(PrevFunction())}>Voltar para o Carrinho</ContinueButton>
+                    </div>
+                </div>
         </EntregaDiv>
     )
 }

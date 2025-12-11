@@ -30,7 +30,7 @@ export const ItemsList = () =>
                 <TotalWrite>Valor Total:</TotalWrite>
                 <TotalWrite>{TotalPrice}</TotalWrite>
             </Total>
-            <ContinueButton onClick={() => Dispatch(NextFunction())}>Continuar</ContinueButton>
+            <ContinueButton onClick={() => Dispatch(NextFunction())}>Continuar para a Entrega</ContinueButton>
             </>
         )
 }
