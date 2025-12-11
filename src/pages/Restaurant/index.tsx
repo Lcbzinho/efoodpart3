@@ -71,7 +71,7 @@ export const Restaurant = () => {
       )}
       <RestaurantHeader/>
       <RestaurantBanner desc={data.titulo} title={data.tipo} img={data.capa} />
-      <RestaurantBody Clicked={HandleChangeClicked} Cardapio={data ? data.cardapio : []} />
+      <RestaurantBody HandleChangeClicked={HandleChangeClicked} Cardapio={data ? data.cardapio : []} />
       <Footer />
     </>
   )

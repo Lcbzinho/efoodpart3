@@ -10,9 +10,10 @@ type Props = {
     preco: number
     porcao: string
   }[]
+  HandleChangeClicked: (data: boolean, id: number) => void
 }
 
-export const RestaurantBody = ({ Cardapio }: Props) => {
+export const RestaurantBody = ({ Cardapio, HandleChangeClicked }: Props) => {
   return (
     <RestaurantBodyContainer>
       <RestaurantContainer>
@@ -23,6 +24,7 @@ export const RestaurantBody = ({ Cardapio }: Props) => {
             CardImg={item.foto}
             CardDesc={item.descricao}
             CardTitle={item.nome}
+            HandleChangeClicked={HandleChangeClicked}
           />
         ))}
       </RestaurantContainer>

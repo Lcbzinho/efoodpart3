@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Colors } from "../../../styles";
+import { Field } from "formik";
 
 export const EntregaDiv = styled.div`
     display: flex;
@@ -36,7 +37,7 @@ export const EntregaLabel = styled.label`
     font-size: 14px;
 `
 
-export const EntregaInput = styled.input`
+export const EntregaInput = styled(Field)`
     width: 100%;
     background-color: ${Colors.BackgroundColor};
     color: #4b4b4b;
