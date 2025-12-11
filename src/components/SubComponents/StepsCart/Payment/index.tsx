@@ -2,19 +2,45 @@ import { useDispatch } from "react-redux"
 import { EntregaDiv, EntregaInfoDiv, EntregaInput, EntregaLabel, EntregaTitle } from "../styles"
 import { ContinueButton } from "../../ContinueButton"
 import { NextFunction, PrevFunction } from "../../../../store/slices/CartSlice"
-import { EntregaInfoDivGrid, EntregaInfoDivGridMesAno } from "./styles"
-import { Form, Formik } from "formik"
+import { EntregaInfoDivGrid, EntregaInfoDivGridMesAno, ErrorTooltip } from "./styles"
+import { ErrorMessage, Form, Formik } from "formik"
+import * as Yup from 'yup'
 
 export const PaymentCart = () => {
     const Dispatch = useDispatch()
+    //Verification
+        const EntregaSchema = Yup.object({
+            Nome: Yup.string()
+                .required("Digite o nome que está no cartão"),
+        
+            Numero: Yup.string()
+                .matches(/^\d{14,20}$/, "Digite um cartão valido")
+                .required("Digite o número do cartão"),
+        
+            CVV: Yup.string()
+                .matches(/^\d{3}$/, "Digite um cartão valido")
+                .required("Digite o CVV"),
+        
+            Mes: Yup.string()
+                .matches(/^\d{2}$/, "Digite um cartão valido")
+                .typeError("Digite um mês valido")
+                .required("Mes Invalido"),
+        
+            Ano: Yup.string()
+                .matches(/^\d{4}$/, "Digite um cartão valido")
+                .typeError("Digite um Ano válido")
+                .required("Ano Invalido"),
+        
+        });
     return (
         <Formik initialValues={{
-                    Rua: '',
+                    Nome: '',
                     Numero: '',
                     CVV: '',
-                    Mês: '',
+                    Mes: '',
                     Ano: '',
                 }}
+                validationSchema={EntregaSchema}
                 onSubmit={(value) => {
                     console.log(value)
                     Dispatch(NextFunction())
@@ -24,26 +50,31 @@ export const PaymentCart = () => {
                         <EntregaTitle>Entrega</EntregaTitle>
                         <EntregaInfoDiv>
                             <EntregaLabel>Nome</EntregaLabel>
-                            <EntregaInput name='Rua' placeholder="Nome" />
+                            <EntregaInput name='Nome' placeholder="Nome" />
+                            <ErrorMessage name='Nome' render={(msn) => <ErrorTooltip>{msn}</ErrorTooltip>}/>
                         </EntregaInfoDiv>
                     <EntregaInfoDivGrid>
                         <EntregaInfoDiv>
                             <EntregaLabel>Numero do Cartao</EntregaLabel>
                             <EntregaInput name='Numero' placeholder="Numero" />
+                            <ErrorMessage name='Numero' render={(msn) => <ErrorTooltip>{msn}</ErrorTooltip>}/>
                         </EntregaInfoDiv>
                         <EntregaInfoDiv>
                             <EntregaLabel>CVV</EntregaLabel>
                             <EntregaInput name='CVV' placeholder="CVV" />
+                            <ErrorMessage name='CVV' render={(msn) => <ErrorTooltip>{msn}</ErrorTooltip>}/>
                         </EntregaInfoDiv>
                     </EntregaInfoDivGrid>
                     <EntregaInfoDivGridMesAno>
                         <EntregaInfoDiv>
                             <EntregaLabel>Mês de Vencimento</EntregaLabel>
-                            <EntregaInput name='Mês' placeholder="Mês" />
+                            <EntregaInput name='Mes' placeholder="Mês" />
+                            <ErrorMessage name='Mes' render={(msn) => <ErrorTooltip>{msn}</ErrorTooltip>}/>
                         </EntregaInfoDiv>
                         <EntregaInfoDiv>
                             <EntregaLabel>Ano de Vencimento</EntregaLabel>
                             <EntregaInput name='Ano' placeholder="Ano" />
+                            <ErrorMessage name='Ano' render={(msn) => <ErrorTooltip>{msn}</ErrorTooltip>}/>
                         </EntregaInfoDiv>
                     </EntregaInfoDivGridMesAno>
                         <div className="buttons">

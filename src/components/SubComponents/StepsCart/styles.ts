@@ -23,7 +23,7 @@ export const EntregaTitle = styled.h2`
 `
 export const EntregaInfoDiv = styled.div`
     margin-bottom: 8px;
-    
+    position: relative;   
 `
 
 export const EntregaInfoDivGrid = styled.div`
