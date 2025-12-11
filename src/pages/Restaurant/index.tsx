@@ -34,16 +34,10 @@ export const Restaurant = () => {
   //clickedApi, and saving the clicked restaurant
   const [clicked, setClicked] = useState(false)
   const [ItemSelected, setItemSelected] = useState(-1)
-  const [process, setProcess] = useState(0)
 
   //funcion to close
   const HandleCloseClicked = (n: boolean) => {
     setClicked(n)
-  }
-
-  //function to continue cart
-  const HandleCart = () => {
-    setProcess((prev) => prev + 1)
   }
 
   //function to change clicked
@@ -75,7 +69,7 @@ export const Restaurant = () => {
       {clicked && data && ( 
         <Modal prato={data.cardapio[ItemSelected]} Clicked={HandleCloseClicked} key={data.titulo} />
       )}
-      <RestaurantHeader setProcess={HandleCart} process={process} />
+      <RestaurantHeader/>
       <RestaurantBanner desc={data.titulo} title={data.tipo} img={data.capa} />
       <RestaurantBody Clicked={HandleChangeClicked} Cardapio={data ? data.cardapio : []} />
       <Footer />

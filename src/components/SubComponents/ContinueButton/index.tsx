@@ -8,7 +8,7 @@ type Props = {
 export const ContinueButton = ({onClick, children}: Props) => {
 
     return (
-        <Button onClick={() => onClick()}>
+        <Button onClick={onClick}>
             {children}
         </Button>
     )

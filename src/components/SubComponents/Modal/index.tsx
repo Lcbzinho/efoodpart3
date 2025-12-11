@@ -26,7 +26,7 @@ type Props = {
 
 export const Modal = ({ prato, Clicked }: Props) => {
   const Dispatch = useDispatch()
-  const items = useSelector((state: RootState) => state.cart)
+  const items = useSelector((state: RootState) => state.cart.items)
 
   //Function to verify addItem
   const AddItem = (prato: Props['prato']) => {

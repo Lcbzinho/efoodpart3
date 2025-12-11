@@ -1,14 +1,12 @@
 import { CartCloseButton, CartCon, CartContainer} from "./styles"
 import Close from '../../../assets/images/Icons/close.png'
-import { ContinueButton } from "../ContinueButton"
 
 type Props = {
     children: React.ReactNode
     CloseFunction: () => void
-    NextFunction: () => void
 }
 
-export const CartBody = ({children, CloseFunction, NextFunction}: Props) => {
+export const CartBody = ({children, CloseFunction}: Props) => {
 
     return (
         <CartContainer>
@@ -20,7 +18,6 @@ export const CartBody = ({children, CloseFunction, NextFunction}: Props) => {
                     {children}
                 </div>
                 <div className="ContinueButton">
-                        <ContinueButton onClick={NextFunction}>Continuar</ContinueButton>
                 </div>
             </CartCon>
         </CartContainer>

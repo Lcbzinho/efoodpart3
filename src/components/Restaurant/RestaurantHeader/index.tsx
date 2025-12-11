@@ -8,12 +8,7 @@ import { CartBody } from '../../SubComponents/Cart'
 import { ItemsList } from '../../SubComponents/CartListItems'
 import { CartEntrega } from '../../SubComponents/CartEntrega'
 
-type Process = {
-  process: number
-  setProcess: () => void
-}
-
-export const RestaurantHeader = ({process, setProcess}: Process) => {
+export const RestaurantHeader = () => {
   //Processos cart
   const Processos = [
     <ItemsList />,
@@ -29,8 +24,8 @@ export const RestaurantHeader = ({process, setProcess}: Process) => {
   return (
     <Background>
       {clicked ? (
-        <CartBody NextFunction={setProcess} CloseFunction={HandleClose}>
-          {Processos[process]}
+        <CartBody CloseFunction={HandleClose}>
+          {Processos[ite.step]}
         </CartBody>
       ): null}
       <HeaderContainer>
@@ -38,7 +33,7 @@ export const RestaurantHeader = ({process, setProcess}: Process) => {
           <Link to="/">Restaurants</Link>
         </Restaurant>
         <HeaderImg src={Logo} />
-        <Restaurant onClick={() => setClicked(!clicked)}>{ite.length} Product(s) in cart</Restaurant>
+        <Restaurant onClick={() => setClicked(!clicked)}>{ite.items.length} Product(s) in cart</Restaurant>
       </HeaderContainer>
     </Background>
   )
