@@ -1,75 +1,129 @@
-# React + TypeScript + Vite
+# EFOOD – Frontend Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains the **EFOOD Frontend**, a delivery application built with **React**, **TypeScript**, **Redux Toolkit**, **RTK Query**, **Formik**, and **Styled Components**. The project simulates a complete ordering flow: browsing restaurants, viewing dishes, adding items to the cart, and completing a validated checkout.
 
-Currently, two official plugins are available:
+## Technologies Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* React
+* TypeScript
+* Vite
+* Redux Toolkit
+* RTK Query
+* React Redux
+* Formik
+* Yup
+* Styled Components
+* React Router DOM
 
-## React Compiler
+## Features
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+* Restaurant listing
+* Detailed restaurant pages
+* Product cards and description
+* Add/remove items from cart
+* Multi-step checkout flow
+* Form validation using Formik + Yup
+* Global state management with Redux Toolkit
+* API integration using RTK Query
+* Modal system and reusable components
 
-Note: This will impact Vite dev & build performances.
+## Project Structure
 
-## Expanding the ESLint configuration
+```
+assets/
+  imagens/
+    (general images)
+  Restaurantes/
+    (restaurant images)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Components/
+  home/
+    homebody/
+    homeheader/
+  restaurant/
+    restaurantBanner/
+    restaurantBody/
+    restaurantCard/
+    restaurantHeader/
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Subcomponents/
+  BuyButton/
+  Card/
+  Cart/
+  CartItem/
+  CartListItem/
+  ContinueButton/
+  Footer/
+  Modal/
+  StepsCart/
+    Adress/
+    Finished/
+    Payment/
+  Tag/
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Store/
+  Api/
+  slices/
+  index.tsx
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Running the Project
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 1. Clone the repository
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+git clone https://github.com/Guillerme00/EFOOD-PROJECT-FRONTEND.git
+```
+
+### 2. Install dependencies
+
+```
+npm install
+```
+
+### 3. Start development server
+
+```
+npm run dev
+```
+
+The application will run at:
+
+```
+http://localhost:5173
+```
+
+## Production Build
+
+```
+npm run build
+```
+
+## Checkout Flow
+
+The checkout process is divided into three validated steps:
+
+1. **Address information**
+2. **Payment details**
+3. **Order confirmation**
+
+Each step interacts with Redux state and uses Formik for structured validation.
+
+## API Integration
+
+All network requests are handled via **RTK Query**, communicating with an external API that simulates the order processing pipeline.
+
+## Project Goals
+
+The objective of this project is to practice and consolidate:
+
+* Scalable front-end architecture
+* Global state management with Redux Toolkit
+* Async request handling with RTK Query
+* TypeScript for typing and safety
+* Form handling and validation
+* Componentization and clean code structure
+
+## License
+
+This project is proprietary. All rights reserved.
