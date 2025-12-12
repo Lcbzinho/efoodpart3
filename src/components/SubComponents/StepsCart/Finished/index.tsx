@@ -1,24 +1,37 @@
-import { useDispatch } from "react-redux"
-import { ContinueButton } from "../../ContinueButton"
-import { FinishedCardDesc, FinishedCartTitle } from "./styles"
-import { Clicked, FinishingFunction } from "../../../../store/slices/CartSlice"
+import { useDispatch } from 'react-redux'
+import { ContinueButton } from '../../ContinueButton'
+import { FinishedCardDesc, FinishedCartTitle } from './styles'
+import { Clicked, FinishingFunction } from '../../../../store/slices/CartSlice'
 
 export const FinishedCart = () => {
-    const Dispatch = useDispatch()
+  const Dispatch = useDispatch()
 
-    const Finished = () => {
-        Dispatch(FinishingFunction())
-        Dispatch(Clicked())
-    }
+  const Finished = () => {
+    Dispatch(FinishingFunction())
+    Dispatch(Clicked())
+  }
 
-    return (
-        <>
-            <FinishedCartTitle>Pedido Realizado - <span>ORDER_ID</span></FinishedCartTitle>
-            <FinishedCardDesc>Estamos felizes em informar que seu pedido já está em processo de preparação e, em breve, será entregue no endereço fornecido.</FinishedCardDesc>
-            <FinishedCardDesc>Gostaríamos de ressaltar que nossos entregadores não estão autorizados a realizar cobranças extras.</FinishedCardDesc>
-            <FinishedCardDesc>Lembre-se da importância de higienizar as mãos após o recebimento do pedido, garantindo assim sua segurança e bem-estar durante a refeição.</FinishedCardDesc>
-            <FinishedCardDesc>Esperamos que desfrute de uma deliciosa e agradável experiência gastronômica. Bom apetite!</FinishedCardDesc>
-            <ContinueButton onClick={() => Finished()} >Concluir</ContinueButton>
-        </>
-    )
+  return (
+    <>
+      <FinishedCartTitle>
+        Pedido Realizado - <span>ORDER_ID</span>
+      </FinishedCartTitle>
+      <FinishedCardDesc>
+        Estamos felizes em informar que seu pedido já está em processo de preparação e, em breve,
+        será entregue no endereço fornecido.
+      </FinishedCardDesc>
+      <FinishedCardDesc>
+        Gostaríamos de ressaltar que nossos entregadores não estão autorizados a realizar cobranças
+        extras.
+      </FinishedCardDesc>
+      <FinishedCardDesc>
+        Lembre-se da importância de higienizar as mãos após o recebimento do pedido, garantindo
+        assim sua segurança e bem-estar durante a refeição.
+      </FinishedCardDesc>
+      <FinishedCardDesc>
+        Esperamos que desfrute de uma deliciosa e agradável experiência gastronômica. Bom apetite!
+      </FinishedCardDesc>
+      <ContinueButton onClick={() => Finished()}>Concluir</ContinueButton>
+    </>
+  )
 }
