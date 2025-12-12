@@ -47,6 +47,7 @@ type CartState = {
   delivery: Delivery
   payment: Payment
   finish: Finish | null
+  orderId: string
 }
 const initialState: CartState = {
   items: [],
@@ -75,7 +76,8 @@ const initialState: CartState = {
     }
   },
 
-  finish: null
+  finish: null,
+  orderId: ''
 }
 const cartSlice = createSlice({
   name: 'cart',
@@ -116,7 +118,6 @@ const cartSlice = createSlice({
         }
       }
       state.items = []
-      state.step = 0
     },
     Clicked: (state) => {
       state.clicked = !state.clicked
@@ -127,8 +128,10 @@ const cartSlice = createSlice({
     SavePayment: (state, action: PayloadAction<Payment>) => {
       state.payment = action.payload
     },
+    AttOrderId: (state, action: PayloadAction<string>) => {
+      state.orderId = action.payload
+    },
     Finish:  (state) => {
-      if(state.delivery === null || state.payment === null) return
       const itens = state.items.map((item) => ({
         id: item.id,
         price: item.preco
@@ -139,7 +142,9 @@ const cartSlice = createSlice({
         delivery: state.delivery,
         payment: state.payment
       }
-
+    },
+    ResetStep: (state) => {
+      state.step = 0
     }
   },
 })
@@ -153,6 +158,8 @@ export const {
   PrevFunction,
   SaveDelivery,
   SavePayment,
-  Finish
+  Finish,
+  AttOrderId,
+  ResetStep
 } = cartSlice.actions
 export default cartSlice.reducer

@@ -45,7 +45,6 @@ export const CartEntrega = () => {
       }}
       validationSchema={EntregaSchema}
       onSubmit={(value) => {
-        console.log(value)
         const Payload = {
           receiver: value.Nome,
           address: {

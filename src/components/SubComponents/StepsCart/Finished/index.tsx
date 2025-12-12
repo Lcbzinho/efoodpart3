@@ -1,19 +1,21 @@
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { ContinueButton } from '../../ContinueButton'
 import { FinishedCardDesc, FinishedCartTitle } from './styles'
-import { Clicked } from '../../../../store/slices/CartSlice'
+import { Clicked, ResetStep } from '../../../../store/slices/CartSlice'
+import type { RootState } from '../../../../store/indext'
 
 export const FinishedCart = () => {
   const Dispatch = useDispatch()
+  const OrderId = useSelector((state: RootState) => state.cart.orderId)
 
   const Finished = () => {
+    Dispatch(ResetStep())
     Dispatch(Clicked())
   }
-
   return (
     <>
       <FinishedCartTitle>
-        Pedido Realizado - <span>ORDER_ID</span>
+        Pedido Realizado - <span>{OrderId}</span>
       </FinishedCartTitle>
       <FinishedCardDesc>
         Estamos felizes em informar que seu pedido já está em processo de preparação e, em breve,
