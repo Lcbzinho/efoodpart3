@@ -37,6 +37,9 @@ export const RestaurantHeader = () => {
         </Restaurant>
         <HeaderImg src={Logo} />
         <Restaurant onClick={() => Dispatch(Clicked())}>{ite.items.length} Product(s) in cart</Restaurant>
+        <Restaurant>
+          <Link to="/cart">Abrir carrinho</Link>
+        </Restaurant>
       </HeaderContainer>
     </Background>
   )
