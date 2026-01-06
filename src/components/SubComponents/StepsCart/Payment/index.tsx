@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { EntregaDiv, EntregaInfoDiv, EntregaInput, EntregaLabel, EntregaTitle } from '../styles'
 import { ContinueButton } from '../../ContinueButton'
-import { AttOrderId, Finish, NextFunction, PrevFunction, ResetFunction, SavePayment } from '../../../../store/slices/CartSlice'
+import { AttOrderId, Finish, PrevFunction, ResetFunction, SavePayment } from '../../../../store/slices/CartSlice'
 import { EntregaInfoDivGrid, EntregaInfoDivGridMesAno, ErrorTooltip } from './styles'
 import { ErrorMessage, Form, Formik } from 'formik'
 import { useCreateOrderMutation } from '../../../../store/api/postapi'
