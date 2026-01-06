@@ -7,9 +7,11 @@ import { ErrorMessage, Form, Formik } from 'formik'
 import { useCreateOrderMutation } from '../../../../store/api/postapi'
 import * as Yup from 'yup'
 import { store, type RootState } from '../../../../store/indext'
+import { useNavigate } from 'react-router-dom'
 
 export const PaymentCart = () => {
   const Dispatch = useDispatch()
+  const navigate = useNavigate()
 
   //Pegando os itens do estado global, e puxando o mutate da api
   const [createOrder] = useCreateOrderMutation()
@@ -66,8 +68,8 @@ export const PaymentCart = () => {
           const finished = store.getState().cart.finish
           const result = await createOrder(finished).unwrap()
           Dispatch(AttOrderId(result.orderId))
-          Dispatch(NextFunction())
           Dispatch(ResetFunction())
+          navigate('/confirmacao')
         } catch (err){
           console.error(err)
           alert("Falha ao completar o pedido")
@@ -107,7 +109,7 @@ export const PaymentCart = () => {
             </EntregaInfoDiv>
           </EntregaInfoDivGridMesAno>
           <div className="buttons">
-            <ContinueButton type="submit">Finalizar Compra</ContinueButton>
+            <ContinueButton type="submit">Concluir Pedido</ContinueButton>
             <div className="buttons2">
               <ContinueButton onClick={() => Dispatch(PrevFunction())}>
                 Voltar para o Endereço
